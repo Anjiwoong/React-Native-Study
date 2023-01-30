@@ -6,3 +6,4 @@
 | 04 ~ 05 |            [미니게임 (번호 맞추기) / 가로, 세로 모드 / 기기별 스타일](https://github.com/Anjiwoong/React-Native-Study/tree/main/guess-my-number)            |
 | 06 ~ 07 |           [Food-App / 네비게이션(Stack, Drawer) / ContextAPI, Redux-toolkit](https://github.com/Anjiwoong/React-Native-Study/tree/main/food-app)            |
 | 08 ~ 10 | [Expense-Tracker / CRUD , inputValid / axios, firebase를 통한 데이터베이스 연결](https://github.com/Anjiwoong/React-Native-Study/tree/main/expense-tracker) |
+|   11    |       [auth / 사용자 인증 , Firebase를 이용한 로그인 기능, token, AsyncStorage 사용](https://github.com/Anjiwoong/React-Native-Study/tree/main/auth)        |
