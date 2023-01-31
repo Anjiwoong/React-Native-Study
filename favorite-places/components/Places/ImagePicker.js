@@ -8,7 +8,7 @@ import { Alert, Image, StyleSheet, Text, View } from 'react-native';
 import { GlobalColors } from '../../constants/colors';
 import OutlinedButton from '../UI/OutlinedButton';
 
-const ImagePicker = () => {
+const ImagePicker = ({ onTakeImage }) => {
   const [pickedImage, setPickedImage] = useState();
   const [cameraPermissionInformation, requestPermission] =
     useCameraPermissions();
@@ -38,10 +38,13 @@ const ImagePicker = () => {
     const image = await launchCameraAsync({
       allowsEditing: true,
       aspect: [16, 9],
-      quality: 0.5,
+      quality: 1,
     });
 
-    setPickedImage(image.assets[0].uri);
+    if (!image.canceled) {
+      setPickedImage(image.assets[0].uri);
+      onTakeImage(image.assets[0].uri);
+    }
   };
 
   let imagePreview = <Text>No image taken yet.</Text>;
@@ -68,11 +71,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: GlobalColors.primary100,
     borderRadius: 4,
+    overflow: 'hidden',
   },
 
   image: {
     width: '100%',
     height: '100%',
+    borderRadius: 4,
   },
 });
 
