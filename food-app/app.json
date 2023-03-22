@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "food-app",
+    "name": "My Recipe Book",
     "slug": "food-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,18 +15,29 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.woongs.myrecipebook"
     },
     "android": {
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.woongs.myrecipebook"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "eb1f4ead-3d26-4f4e-933c-e17492c0e40b"
+      }
     }
   }
 }
