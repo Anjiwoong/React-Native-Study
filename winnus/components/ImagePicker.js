@@ -1,10 +1,8 @@
 import {
   launchCameraAsync,
-  launchImageLibraryAsync,
   MediaTypeOptions,
   PermissionStatus,
   useCameraPermissions,
-  useMediaLibraryPermissions,
 } from 'expo-image-picker';
 import { useState } from 'react';
 import { Alert, Button, Image, StyleSheet, Text, View } from 'react-native';
@@ -13,7 +11,6 @@ const ImagePicker = () => {
   const [pickedImage, setPickedImage] = useState(null);
   const [cameraPermissionInformation, requestPermission] =
     useCameraPermissions();
-  const [status, requestStatus] = useMediaLibraryPermissions();
 
   const verifyPermissions = async () => {
     if (cameraPermissionInformation.status === PermissionStatus.UNDETERMINED) {
@@ -23,33 +20,18 @@ const ImagePicker = () => {
     }
 
     if (cameraPermissionInformation.status === PermissionStatus.DENIED) {
-      Alert.alert(
-        'Insufficient Permissions!',
-        'You need to grant camera permissions to use this app.'
-      );
+      Alert.alert('안됩니다~', '권한 수락하세여');
       return false;
     }
     return true;
   };
 
-  const libraryPermissions = async () => {
-    if (!status?.granted) {
-      const permission = await requestStatus();
-      if (!permission.granted) {
-        return false;
-      }
-    }
-
-    return true;
-  };
-
   const takeImageHandler = async () => {
-    const androidPermission = await libraryPermissions();
     const hasPermission = await verifyPermissions();
 
-    if (!hasPermission || !androidPermission) return;
+    if (!hasPermission) return;
 
-    const result = await launchImageLibraryAsync({
+    const result = await launchCameraAsync({
       mediaTypes: MediaTypeOptions.Images,
       aspect: [16, 9],
       quality: 0.5,

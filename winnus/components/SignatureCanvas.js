@@ -6,7 +6,6 @@ const SignatureCanvas = () => {
   const [signature, setSign] = useState(null);
 
   const handleOK = signature => {
-    console.log(signature);
     setSign(signature);
   };
 
@@ -33,6 +32,7 @@ const SignatureCanvas = () => {
         ) : null}
       </View>
       <Signature
+        style={styles.signature}
         onOK={handleOK}
         onEmpty={handleEmpty}
         descriptionText="Sign"
@@ -48,7 +48,6 @@ const SignatureCanvas = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
   },
   preview: {
     backgroundColor: '#c6c3c3',
@@ -60,6 +59,9 @@ const styles = StyleSheet.create({
   image: {
     width: 335,
     height: 200,
+  },
+  signature: {
+    flex: 1,
   },
 });
 

@@ -4,27 +4,32 @@ import SignatureCanvas from '../components/SignatureCanvas';
 
 const Home = ({ navigation }) => {
   const pressHandler = () => {
-    navigation.push('test');
+    navigation.push('detail');
   };
 
   return (
-    <View style={styles.container}>
-      <Button
-        title="go test screen"
-        android_ripple={{ color: '#ccc' }}
-        onPress={pressHandler}
-      />
-      <Text>HomeScreen</Text>
-      <ImagePicker />
-      <SignatureCanvas />
-    </View>
+    <ScrollView contentContainerStyle={styles.scroll}>
+      <View style={styles.container}>
+        <Button
+          title="go detail screen"
+          android_ripple={{ color: '#ccc' }}
+          onPress={pressHandler}
+        />
+        <Text>HomeScreen</Text>
+        <ImagePicker />
+        <SignatureCanvas />
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scroll: {
+    flexGrow: 1,
+  },
   container: {
     flex: 1,
-    marginTop: 50,
+    marginTop: 20,
     fontSize: 20,
   },
 });
